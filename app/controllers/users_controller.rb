@@ -1,5 +1,4 @@
 class UsersController < ApplicationController
-  
   def index
     @posts = Post.all.includes(:author)
     @users = User.all
