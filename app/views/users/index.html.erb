@@ -1,1 +1,28 @@
-<h1>User</h1>
+<main>
+  <div class="btn-container">
+    <% if current_user %>
+      <%= link_to "Create a post", new_user_post_path(current_user.id), class: "btn" %>
+     <% end %>
+   </div>
+  <%# Posts Section %>
+  <section>
+    <% if any_posts? %>
+      <ul>
+        <% @posts.each do |post| %>
+          <li class="post-box">
+            <div class="content-box">
+              <h2 class="title"><%= post.title %></h2>
+              <h4 class="text"><%= post.text %></h4>
+            </div>
+          </li>
+        <% end %>
+      </ul>
+    <% else %>
+      <p>There are no posts to display.</p>
+    <% end %>
+  </section>
+
+  <%# Users Section (if needed) %>
+  <section>
+  </section>
+</main>
