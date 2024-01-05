@@ -11,6 +11,19 @@
   </head>
 
   <body>
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
+    <header>
+      <h1>Bloggerly</h1>    
+      <div>
+        <% if user_signed_in? %>
+          <%= button_to "Sign out", destroy_user_session_path, method: :delete %>
+        <% else %>
+          <%= button_to "Log in", new_user_session_path %>
+          <%= button_to 'Sign up', new_user_registration_path, method: :get %>
+        <% end %>
+      </div>
+    </header>
     <%= yield %>
   </body>
 </html>
